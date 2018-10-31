@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/styles.css"></link>
+    <title></title>
+  </head>
+  <body>
+      <h1> Add Movies Here </h1>
+        <div id="addMoviesContainer">
+          <form action="/add-movies" method="POST">
+            <input type="text" name="movieTitle" placeholder="Enter Movie Title Here...">
+            <input type="text" name="movieDescription" placeholder="Enter Movie Description Here...">
+            <select name="movieGenre">
+              <option value="0"> Select Genre </option>
+              <option> Comedy </option>
+              <option> Romance </option>
+              <option> Drama </option>
+              <option> Thriller </option>
+              <option> SCI-FI </option>
+              <option> Horror </option>
+              <option> Action </option>
+              <option> Documentary </option>
+              <option> Crime </option>
+              <option> Other </option>
+            </select>
+            <input type="text" name="moviePosterURL" placeholder="Enter Movie Poster URL Here...">
+            <input type="submit" />
+          </form>
+        </div>
+
+
+        <div >
+          <ul id="moviesList">
+
+        {{#moviesList}}
+
+          <li>
+            <img id="posterImg" src="{{moviePoster}}"></img>
+          </br>
+            <strong> Movie Title: </strong><label>{{movieTitle}}</label>
+          </br>
+            <strong> Description: </strong><label>{{movieDescription}}</label>
+          </br>
+            <strong> Genre: </strong> <label> {{movieGenre}} </label>
+          </li>
+          <form action="/delete-movies" method="POST">
+            <img type="hidden" name="moviePosterURL" value="{{moviePoster}}" />
+            <input type="hidden" name="movieTitle" value={{movieTitle}} />
+            <input type="hidden" name="movieDescription" value={{movieDescription}} />
+            <input type="hidden" name="movieGenre" value={{movieGenre}} />
+            <input type="submit" value="Remove"/>
+          </form>
+
+        {{/moviesList}}
+        </ul>
+      </div>
+
+  </body>
+</html>

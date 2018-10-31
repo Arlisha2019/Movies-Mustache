@@ -1,0 +1,9 @@
+#posterImg {
+  list-style-type: none;
+  height: 200px;
+  width: 200px;
+}
+
+#moviesList {
+  list-style: none;
+}
